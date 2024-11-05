@@ -61,7 +61,6 @@ export default async function handler(
 
     HAVING amount >= size
   `
-
   const blockedDates = blockedDatesRaw.map((item) => item.date)
 
   return res.json({ blockedWeekDays, blockedDates })

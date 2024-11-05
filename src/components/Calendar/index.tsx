@@ -69,7 +69,6 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
           month: currentDate.get('month') + 1,
         },
       })
-
       return response.data
     },
   )
@@ -78,7 +77,6 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
     if (!blockedDates) {
       return []
     }
-    console.log('calendarWeeks ~ blockedDates', blockedDates)
 
     const daysInMonthArray = Array.from({
       length: currentDate.daysInMonth(),
@@ -117,8 +115,8 @@ export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
           date,
           disabled:
             date.endOf('day').isBefore(new Date()) ||
-            blockedDates.blockedWeekDays.includes(date.get('day')) ||
-            blockedDates.blockedDates.includes(date.get('date')),
+            blockedDates.blockedWeekDays.includes(date.get('day')),
+          // blockedDates.blockedDates.includes(date.get('date')),
         }
       }),
       ...nextMonthFillArray.map((date) => {
